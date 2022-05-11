@@ -1,0 +1,73 @@
+{% extends "base.html" %} {% block title %}Learn{% endblock %} {% block content
+  %} <h1 align="center">{{title}}</h1>
+<style type="text/css">
+.tg {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.tg td {
+  border-color: black;
+  border-style: solid;
+  border-width: 1px;
+  overflow: hidden;
+  padding: 10px 5px;
+  word-break: normal;
+}
+
+.tg th {
+  border-color: black;
+  border-style: solid;
+  border-width: 1px;
+  overflow: hidden;
+  padding: 10px 5px;
+  word-break: normal;
+}
+
+.tg .tg-olz3 {
+  background-color: #FFFFFF;
+  border-color: inherit;
+  color: #000000;
+  vertical-align: top
+}
+
+.img-btn {
+  height: 11vw ;
+  width: screen;
+}
+</style>
+<table class="tg"; align="center">
+<tbody>
+  {%for i in items%}
+  <tr>
+    {%if i|length >= 1%}
+    <td class="tg-olz3">
+      <form method="POST">
+          <input type="text" name="id" value={{i[0][1]}} id="id" style="display: none;"/> 
+          <button type="submit"  class="img-btn btn btn-default"><img class="img-btn" src={{i[0][0]}} id={{i[0][1]}}></button>
+      </form> 
+    </td>
+
+    {%endif%}
+    {%if i|length >= 2%}
+    <td class="tg-olz3">
+      <form method="POST">
+        <input type="text" name="id" value={{i[1][1]}} id="id" style="display: none;"/> 
+        <button type="submit" class="img-btn btn btn-default" ><img class="img-btn" src={{i[1][0]}} id={{i[1][1]}}/></button>
+      </form>
+    </td>
+
+    {%endif%}
+    {%if i|length >= 3%}
+    <td class="tg-olz3">
+      <form method="POST">
+        <input type="text" name="id" value={{i[2][1]}} id={{i[2][1]}} style="display: none;"/> 
+        <button type="submit" class="img-btn btn btn-default" ><img class="img-btn" src={{i[2][0]}} id={{i[2][1]}}/></button>
+      </form>
+    </td>
+    {%endif%}
+  </tr>
+  {%endfor%}
+</tbody>
+</table>
+{%endblock%}
